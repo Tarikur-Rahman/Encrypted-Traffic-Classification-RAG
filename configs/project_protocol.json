@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "project_title": "Provenance-Aware RAG for Evidence-Supported Encrypted Traffic Classification",
+  "created_from_zero": true,
+  "datasets": {
+    "USTC-TFC2016": {
+      "role": "primary",
+      "primary_task": "binary_benign_vs_malware",
+      "label_source": "top-level release category only: Benign or Malware",
+      "source": "https://github.com/davidyslu/USTC-TFC2016",
+      "processing": "PCAP -> NFStream 6.6.0 -> audited flow table",
+      "split_rule": "group-disjoint by source capture/class file; no row-random split"
+    },
+    "CIC-Darknet2020": {
+      "role": "secondary",
+      "primary_task": "privacy_network_4class",
+      "secondary_task": "application_8class",
+      "source": "https://www.unb.ca/cic/datasets/darknet2020.html",
+      "processing": "published flow/CSV data -> schema/label audit -> feature contract",
+      "split_rule": "group-disjoint when an authoritative group key exists; otherwise deterministic stratified split frozen after audit"
+    }
+  },
+  "baseline_models": [
+    "Random Forest",
+    "1D-CNN",
+    "XGBoost",
+    "LightGBM",
+    "CNN-LSTM"
+  ],
+  "final_backbone": "LightGBM independently trained per dataset",
+  "evaluation": [
+    "accuracy",
+    "macro_precision",
+    "macro_recall",
+    "macro_f1",
+    "weighted_f1",
+    "mcc",
+    "auroc",
+    "auprc",
+    "confusion_matrix",
+    "ece",
+    "brier_score"
+  ],
+  "hard_rules": [
+    "Never derive a label from filename/path unless that mapping is explicitly part of the authoritative release contract.",
+    "Never fit imputation/scaling/feature-selection on validation or test.",
+    "Never tune on test.",
+    "Never use row IDs, raw IP addresses, MAC addresses, absolute timestamps, or source filenames as predictors.",
+    "Disable NFStream L7 dissection for the USTC primary baseline to avoid DPI/application shortcut leakage.",
+    "Persist row-level probabilities, predictions, metrics, curves, calibration bins and hashes for later figures.",
+    "Every stage uses inspect -> implement -> validate -> analyze -> continue.",
+    "Existing outputs are immutable; new runs use unique run IDs."
+  ]
+}

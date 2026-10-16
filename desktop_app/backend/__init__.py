@@ -1,0 +1,1 @@
+"""Isolated desktop adapter package."""

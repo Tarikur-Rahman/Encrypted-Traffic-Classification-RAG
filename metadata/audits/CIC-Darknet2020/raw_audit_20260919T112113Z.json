@@ -1,0 +1,10 @@
+{
+  "authoritative_label_file_counts": {},
+  "created_at_utc": "2026-09-19T11:21:13+00:00",
+  "dataset": "CIC-Darknet2020",
+  "extension_counts": {
+    ".csv": 1
+  },
+  "file_count": 1,
+  "total_bytes": 73325208
+}

@@ -1,0 +1,9 @@
+[project]
+name = "provenance-rag-etc"
+version = "0.1.0"
+description = "Provenance-Aware RAG for Evidence-Supported Encrypted Traffic Classification"
+requires-python = ">=3.11,<3.14"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

@@ -1,0 +1,10 @@
+node_modules/
+.venv/
+runtime/
+tools/
+frontend/dist/
+dist-electron/
+release/
+__pycache__/
+.pytest_cache/
+protected-baseline.json

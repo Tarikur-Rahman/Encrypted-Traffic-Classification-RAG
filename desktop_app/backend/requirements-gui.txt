@@ -1,0 +1,14 @@
+fastapi>=0.115,<1
+uvicorn>=0.30,<1
+pydantic>=2.9,<3
+httpx>=0.27,<1
+pytest>=8,<10
+lightgbm>=4.5,<5
+numpy>=2,<3
+pandas==2.2.3
+scikit-learn==1.9.1
+nfstream==6.6.0
+sentence-transformers==3.4.1
+transformers==4.48.3
+# CPU wheel installed separately from https://download.pytorch.org/whl/cpu
+torch==2.6.0

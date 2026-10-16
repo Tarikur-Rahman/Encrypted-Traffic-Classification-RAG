@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "knowledge_sources": [
+    {
+      "name": "MITRE ATT&CK",
+      "type": "STIX 2.1",
+      "authority": "MITRE"
+    },
+    {
+      "name": "CAPEC",
+      "type": "XML/CSV",
+      "authority": "MITRE"
+    },
+    {
+      "name": "CWE",
+      "type": "XML/CSV",
+      "authority": "MITRE"
+    }
+  ],
+  "retrieval": {
+    "top_k": 10,
+    "final_k": 5
+  },
+  "provenance_dimensions": [
+    "authenticity",
+    "integrity",
+    "recency",
+    "corroboration",
+    "lineage",
+    "source_quality",
+    "injection_risk"
+  ],
+  "v5_validation": {
+    "configuration_status": "FROZEN_PRE_EXECUTION",
+    "execution_readiness": "BLOCKED_DIRECTION_REFERENCE",
+    "development_id": "v5_validation",
+    "decision_claims": "data/raw/rag/decision_evidence_claims.csv",
+    "additional_manifest": "data/raw/rag/evidence_sources_v2/additional_manifest.csv",
+    "additional_documents": "data/raw/rag/evidence_sources_v2/additional_documents.csv",
+    "stage02_profile": "evidence_quality",
+    "stage04_profile": "hypothesis_balanced",
+    "stage06": {
+      "profile": "task_relevance",
+      "method": "hybrid_rrf",
+      "top_k": 10,
+      "retrieval_weight": 1.0,
+      "source_preference_weight": 0.0,
+      "source_preferences": {},
+      "task_alignment_weight": 0.05,
+      "relationship_weight": 0.05
+    },
+    "stage07": {
+      "profile": "evidence_diverse",
+      "top_n": 5,
+      "token_budget": 2048,
+      "max_chunks_per_document": 0,
+      "diversity_threshold": 1.0
+    },
+    "selection_basis": "Pre-execution design: split a total auxiliary score budget of 0.1 equally across two [0,1] signals; preserve original top-two ordering and membership because 0.1 < 1/2 - 1/3. Full observable-term coverage required for hypothesis fallback priority. No outcome tuning.",
+    "labels_or_correctness_used": false,
+    "test_used": false,
+    "cli_application": "Protocol record only; current Stage CLIs do not load this JSON automatically. Pass these values explicitly after the scientific readiness blocker is resolved."
+  },
+  "security_experiments": [
+    "clean",
+    "knowledge_poisoning",
+    "indirect_prompt_injection",
+    "provenance_spoofing",
+    "combined_attack",
+    "ablation"
+  ]
+}

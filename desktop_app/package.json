@@ -1,0 +1,52 @@
+{
+  "name": "provenanceguard-eti",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Read-only research desktop for provenance-aware encrypted traffic intelligence",
+  "author": "ProvenanceGuard Research",
+  "main": "dist-electron/main.cjs",
+  "scripts": {
+    "dev": "node scripts/start.mjs --dev",
+    "start": "node scripts/start.mjs",
+    "build": "tsc --noEmit -p frontend/tsconfig.json && vite build --config frontend/vite.config.ts && node scripts/build-electron.mjs",
+    "package": "npm run build && electron-builder --win portable --publish never",
+    "test": "vitest run --config frontend/vite.config.ts",
+    "test:desktop": "node scripts/smoke.mjs"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.5",
+    "@tanstack/react-table": "^8.21.3",
+    "lucide-react": "^0.468.0",
+    "motion": "^12.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.0.0",
+    "recharts": "^3.0.0",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@testing-library/react": "^16.1.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^41.0.0",
+    "electron-builder": "^26.0.0",
+    "esbuild": "^0.25.0",
+    "jsdom": "^26.0.0",
+    "playwright": "^1.51.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.1.0",
+    "vitest": "^3.0.0"
+  },
+  "build": {
+    "appId": "org.provenanceguard.eti",
+    "productName": "ProvenanceGuard ETI",
+    "directories": {"output": "release"},
+    "files": ["dist-electron/**", "frontend/dist/**", "package.json"],
+    "win": {"target": "portable", "signAndEditExecutable": false},
+    "portable": {"artifactName": "ProvenanceGuard-ETI-${version}.exe"}
+  }
+}

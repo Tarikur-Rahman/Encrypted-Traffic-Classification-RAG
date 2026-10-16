@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "random_seed": 20260919,
+  "split": {
+    "train": 0.6,
+    "validation": 0.2,
+    "test": 0.2
+  },
+  "models": {
+    "random_forest": {
+      "n_estimators": 300,
+      "class_weight": "balanced_subsample"
+    },
+    "xgboost": {
+      "n_estimators": 300,
+      "max_depth": 8,
+      "learning_rate": 0.05,
+      "subsample": 0.9,
+      "colsample_bytree": 0.9
+    },
+    "lightgbm": {
+      "n_estimators": 300,
+      "num_leaves": 31,
+      "learning_rate": 0.05,
+      "class_weight": "balanced"
+    },
+    "1d_cnn": {
+      "channels": 64,
+      "kernel_size": 3,
+      "dropout": 0.2,
+      "epochs": 30,
+      "patience": 5,
+      "batch_size": 1024
+    },
+    "cnn_lstm": {
+      "channels": 64,
+      "kernel_size": 3,
+      "lstm_hidden": 64,
+      "dropout": 0.2,
+      "epochs": 30,
+      "patience": 5,
+      "batch_size": 1024
+    }
+  }
+}

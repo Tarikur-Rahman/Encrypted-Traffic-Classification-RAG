@@ -1,0 +1,16 @@
+{
+  "version": "train-group-median-v1",
+  "development_id": "v5e_validation",
+  "seed": 42,
+  "minimum_rows": 100,
+  "minimum_groups_ustc": 6,
+  "minimum_groups_cic": 20,
+  "minimum_abs_delta": 0.5,
+  "minimum_abs_standardized_median": 0.5,
+  "minimum_group_direction_fraction": 0.8,
+  "bootstrap_replicates": 10000,
+  "familywise_alpha": 0.05,
+  "planned_candidates": 340,
+  "min_coverage_fraction": 0.01,
+  "diagnostic_per_stratum": 10
+}

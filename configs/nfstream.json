@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "package_version": "6.6.0",
+  "streamer": {
+    "decode_tunnels": true,
+    "snapshot_length": 1536,
+    "idle_timeout": 120,
+    "active_timeout": 1800,
+    "accounting_mode": 0,
+    "n_dissections": 0,
+    "statistical_analysis": true,
+    "splt_analysis": 0,
+    "n_meters": 0,
+    "max_nflows": 0,
+    "performance_report": 0,
+    "system_visibility_mode": 0
+  },
+  "note": "n_dissections=0 disables Layer-7 visibility features for the primary traffic baseline."
+}
