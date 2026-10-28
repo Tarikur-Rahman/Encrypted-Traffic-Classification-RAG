@@ -882,28 +882,6 @@ Potential extensions include:
 
 ---
 
-# 📖 Research Title
-
-**Provenance-Aware Retrieval-Augmented Reasoning for Evidence-Supported Encrypted Traffic Classification**
-
----
-
-# 📝 Citation
-
-If this repository is used in academic work, cite the associated paper or thesis after publication.
-
-```bibtex
-@{provenanceguard_eti,
-  title  = {Provenance-Aware Retrieval-Augmented Reasoning for Evidence-Supported Encrypted Traffic Classification},
-  author = {Project Authors},
-  year   = {2026}
-}
-```
-
-Replace the placeholder author field with the final approved author list before public release.
-
----
-
 # 📄 License
 
 Add the appropriate project license before making the repository public.
